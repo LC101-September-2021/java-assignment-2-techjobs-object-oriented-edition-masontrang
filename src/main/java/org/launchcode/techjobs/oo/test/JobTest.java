@@ -42,7 +42,6 @@ public class JobTest {
         assertTrue(job.getCoreCompetency() instanceof CoreCompetency);
     }
 
-
     @Test
     public void testJobsForEquality() {
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
@@ -53,14 +52,12 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
         Job job = new Job();
-//        assertEquals(true,job.toString().endsWith("\n"));
-//        assertEquals(true,job.toString().startsWith("\n"));
+//        assertEquals(true,job.toString().endsWith("\n")); //Does not work with Autograder
+//        assertEquals(true,job.toString().startsWith("\n")); //Does not work with Autograder
 
         String jobString = job.toString();
         assertEquals('\n', jobString.charAt(0)); //Test first character is new line
         assertEquals('\n', jobString.charAt(jobString.length() - 1)); //Test last character is new line
-
-
 
     }
 
@@ -81,6 +78,7 @@ public class JobTest {
                 "Position Type: Quality control\n" +
                 "Core Competency: Persistence\n", job.toString());
     }
+
     @Test
     public void testToStringEmployerEmpty(){
         Job job = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
@@ -91,6 +89,7 @@ public class JobTest {
                 "Position Type: Quality control\n" +
                 "Core Competency: Persistence\n", job.toString());
     }
+
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
