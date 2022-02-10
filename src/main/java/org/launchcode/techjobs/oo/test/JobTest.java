@@ -25,67 +25,73 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
         //Checks if each string value of each object is correct
-            Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        final String JOB_NAME = "Product tester"; //Oh, it would be nice if everything was a constant, but I'm too lazy so shrug emoji
+        Job job = new Job(JOB_NAME, new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-//       assertEquals("ACME",job1.getEmployer());
-
-        assertEquals("Product tester", job3.getName());
-        assertEquals("ACME", job3.getEmployer().toString());
-        assertEquals("Desert", job3.getLocation().toString());
-        assertEquals("Quality control", job3.getPositionType().toString());
-        assertEquals("Persistence", job3.getCoreCompetency().toString());
+        assertEquals(JOB_NAME, job.getName());
+        assertEquals("ACME", job.getEmployer().toString());
+        assertEquals("Desert", job.getLocation().toString());
+        assertEquals("Quality control", job.getPositionType().toString());
+        assertEquals("Persistence", job.getCoreCompetency().toString());
 
         //Check if each class of each object is correct
-        assertTrue(job3 instanceof Job);
-        assertTrue(job3.getEmployer() instanceof Employer);
-        assertTrue(job3.getLocation() instanceof Location);
-        assertTrue(job3.getPositionType() instanceof PositionType);
-        assertTrue(job3.getCoreCompetency() instanceof CoreCompetency);
+        assertTrue(job instanceof Job);
+        assertTrue(job.getEmployer() instanceof Employer);
+        assertTrue(job.getLocation() instanceof Location);
+        assertTrue(job.getPositionType() instanceof PositionType);
+        assertTrue(job.getCoreCompetency() instanceof CoreCompetency);
     }
 
 
     @Test
     public void testJobsForEquality() {
-        Job job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertFalse(job4.equals(job5));
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertFalse(job1.equals(job2));
     }
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        Job job6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals(true,job6.toString().endsWith("\n"));
-        assertEquals(true,job6.toString().startsWith("\n"));
+        Job job = new Job();
+        assertEquals(true,job.toString().endsWith("\n"));
+        assertEquals(true,job.toString().startsWith("\n"));
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLinePopulated(){
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(true,job.toString().endsWith("\n"));
+        assertEquals(true,job.toString().startsWith("\n"));
     }
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job job7 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID:" + job7.getId() + "\n" +
+        Job job = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals("\n" + "ID: " + job.getId() + "\n" +
                 "Name: Data not available\n" +
-                "Employer: " + job7.getEmployer() + "\n" +
+                "Employer: ACME\n" +
                 "Location: Desert\n" +
                 "Position Type: Quality control\n" +
-                "Core Competency: Persistence\n", job7.toString());
+                "Core Competency: Persistence\n", job.toString());
     }
     @Test
     public void testToStringEmployerEmpty(){
-        Job job8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals("\n" + "ID: 1\n" +
                 "Name: Product tester\n" +
                 "Employer: Data not available\n" +
                 "Location: Desert\n" +
                 "Position Type: Quality control\n" +
-                "Core Competency: Persistence\n", job8.toString());
+                "Core Competency: Persistence\n", job.toString());
     }
     @Test
     public void testToStringComplete(){
-        Job job9 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID: 1\n" +
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals("\n" + "ID: " + job.getId() + "\n" +
                 "Name: Product tester\n" +
                 "Employer: ACME\n" +
                 "Location: Desert\n" +
                 "Position Type: Quality control\n" +
-                "Core Competency: Persistence\n", job9.toString());
+                "Core Competency: Persistence\n", job.toString());
     }
 }

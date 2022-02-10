@@ -39,27 +39,27 @@ public class Job {
     @Override
     public String toString() {
 
-        String name = getName().toString();
-        String employer = getEmployer().toString();
-        String location = getLocation().toString();
-        String positionType = getPositionType().toString();
-        String coreCompetency = getCoreCompetency().toString();
+        String name = getName() !=null? getName().toString():"";
+        String employer = getEmployer() !=null? getEmployer().toString():"";
+        String location = getLocation() !=null? getLocation().toString():"";
+        String positionType = getPositionType() !=null? getPositionType().toString():"";
+        String coreCompetency = getCoreCompetency() !=null? getCoreCompetency().toString():"";
 //        if (getId()== ""){
 //            employer = "Data not available";
 //        }
-        if (getName().toString()== ""){
+        if (name == ""){
             name = "Data not available";
         }
-        if (getEmployer().toString()== ""){
+        if (employer == ""){
             employer = "Data not available";
         }
-        if (getLocation().toString()== ""){
+        if (location == ""){
             location = "Data not available";
         }
-        if (getPositionType().toString()== ""){
+        if (positionType == ""){
             positionType = "Data not available";
         }
-        if (getCoreCompetency().toString()== ""){
+        if (coreCompetency == ""){
             coreCompetency = "Data not available";
         }
         String returnString = "\n" +
