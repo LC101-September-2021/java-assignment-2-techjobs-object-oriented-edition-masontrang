@@ -54,16 +54,16 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
         Job job6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertTrue(job6.toString().endsWith("\n"));
-        assertTrue(job6.toString().startsWith("\n"));
+        assertEquals(true,job6.toString().endsWith("\n"));
+        assertEquals(true,job6.toString().startsWith("\n"));
     }
 
     @Test
     public void testToStringNameEmpty(){
         Job job7 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID: 1\n" +
+        assertEquals("\n" + "ID:" + job7.getId() + "\n" +
                 "Name: Data not available\n" +
-                "Employer: ACME\n" +
+                "Employer: " + job7.getEmployer() + "\n" +
                 "Location: Desert\n" +
                 "Position Type: Quality control\n" +
                 "Core Competency: Persistence\n", job7.toString());
