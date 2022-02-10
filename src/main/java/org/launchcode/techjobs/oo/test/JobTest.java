@@ -82,7 +82,7 @@ public class JobTest {
     @Test
     public void testToStringEmployerEmpty(){
         Job job = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID: 1\n" +
+        assertEquals("\n" + "ID: " + job.getId() + "\n" +
                 "Name: Product tester\n" +
                 "Employer: Data not available\n" +
                 "Location: Desert\n" +
