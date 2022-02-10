@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class JobTest {
 
     @Test
-    public void testSettingJobIdMethod() {
+    public void testSettingJobId() {
         Job job1 = new Job();
         Job job2 = new Job();
         assertTrue(job2.getId() - job1.getId() == 1);
