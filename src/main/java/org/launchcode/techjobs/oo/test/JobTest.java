@@ -61,7 +61,7 @@ public class JobTest {
     @Test
     public void testToStringNameEmpty(){
         Job job7 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID: 4\n" +
+        assertEquals("\n" + "ID: 1\n" +
                 "Name: Data not available\n" +
                 "Employer: ACME\n" +
                 "Location: Desert\n" +
@@ -81,7 +81,7 @@ public class JobTest {
     @Test
     public void testToStringComplete(){
         Job job9 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID: 9\n" +
+        assertEquals("\n" + "ID: 1\n" +
                 "Name: Product tester\n" +
                 "Employer: ACME\n" +
                 "Location: Desert\n" +
