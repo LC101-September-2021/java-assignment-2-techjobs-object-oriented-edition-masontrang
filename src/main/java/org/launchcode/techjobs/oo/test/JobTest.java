@@ -1,9 +1,10 @@
-package org.launchcode.techjobs.oo;
+package org.launchcode.techjobs.oo.test;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.launchcode.techjobs.oo.*;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
@@ -15,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class JobTest {
 
     @Test
-    public void JobTest() {
+    public void testJobID() {
         Job job1 = new Job();
         Job job2 = new Job();
         assertTrue(job2.getId() - job1.getId() == 1);
