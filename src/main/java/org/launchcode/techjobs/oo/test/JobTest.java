@@ -85,7 +85,7 @@ public class JobTest {
                 "Core Competency: Persistence\n", job.toString());
     }
     @Test
-    public void testToStringComplete(){
+    public void testToStringContainsCorrectLabelsAndData(){
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals("\n" + "ID: " + job.getId() + "\n" +
                 "Name: Product tester\n" +
