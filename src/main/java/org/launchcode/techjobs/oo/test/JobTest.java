@@ -53,8 +53,15 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
         Job job = new Job();
-        assertEquals(true,job.toString().endsWith("\n"));
-        assertEquals(true,job.toString().startsWith("\n"));
+//        assertEquals(true,job.toString().endsWith("\n"));
+//        assertEquals(true,job.toString().startsWith("\n"));
+
+        String jobString = job.toString();
+        assertEquals('\n', jobString.charAt(0)); //Test first character is new line
+        assertEquals('\n', jobString.charAt(jobString.length() - 1)); //Test last character is new line
+
+
+
     }
 
     @Test
